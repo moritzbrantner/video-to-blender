@@ -11,7 +11,7 @@ dependencies = []
 
 [project.optional-dependencies]
 lingbot = [
-  "numpy<2",
+  "numpy<3",
   "ultralytics>=8.3",
 ]
 

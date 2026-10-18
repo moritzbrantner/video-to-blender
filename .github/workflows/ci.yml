@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  merge-ready:
+    name: merge-ready
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Install existing demo prerequisites
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg blender
+      - name: Run the existing deterministic mock-backend demo
+        run: ./v2b demo
